@@ -1,0 +1,24 @@
+{
+  "name": "react-native-countdown-timer",
+  "version": "0.0.1",
+  "description": "Countdown timer for React native",
+  "main": "CountdownTimer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Naoto-Ida/react-native-countdown-timer.git"
+  },
+  "keywords": [
+    "react-native",
+    "timer",
+    "countdown"
+  ],
+  "author": "Naoto-Ida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Naoto-Ida/react-native-countdown-timer/issues"
+  },
+  "homepage": "https://github.com/Naoto-Ida/react-native-countdown-timer#readme"
+}

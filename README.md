@@ -1,0 +1,2 @@
+# Countdown Timer for React Native
+A [package](https://www.npmjs.com/package/react-native-countdown-timer) which is a port of [@uken](https://github.com/uken/)'s [react-countdown-timer](https://github.com/uken/react-countdown-timer) with animations.
