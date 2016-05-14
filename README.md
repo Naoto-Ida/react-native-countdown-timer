@@ -36,6 +36,7 @@ export default class YourComponent extends Component {
 | Props name        | Type     | Description                                          | Default |
 |-------------------|----------|------------------------------------------------------|---------|
 | till*             | Date     | A Date object of the datetime end                    |         |
+| onTick            | Function | Callback on timer tick                               |         |
 | onFinish          | Function | Callback when countdown has finished                 |         |
 
 *required
