@@ -30,3 +30,16 @@ export default class YourComponent extends Component {
   }
 }
 ```
+
+
+### Props
+| Props name        | Type     | Description                                          | Default |
+|-------------------|----------|------------------------------------------------------|---------|
+| till*             | Date     | A Date object of the datetime end                    |         |
+| onFinish          | Function | Callback when countdown has finished                 |         |
+
+*required
+
+### Todo (PRs welcome!)
+- [ ] Add animations
+- [ ] Add default styling to the timer

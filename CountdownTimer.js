@@ -62,7 +62,7 @@ export default class CountdownTimer extends Component {
     }
 
     if (countdownComplete) {
-      if (this.props.completeCallback) { this.props.completeCallback() }
+      if (this.props.onFinish) { this.props.onFinish() }
       return
     }
 
@@ -107,7 +107,6 @@ export default class CountdownTimer extends Component {
 
 CountdownTimer.propTypes = {
   till: React.PropTypes.object.isRequired,
-  overrideStyle: React.PropTypes.bool,
   onFinish: React.PropTypes.func
 }
 
