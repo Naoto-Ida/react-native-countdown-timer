@@ -36,12 +36,10 @@ export default class CountdownTimer extends Component {
   }
 
   tick() {
-    // console.error(this.state)
     var currentTime = Date.now()
     var dt = this.state.prevTime ? (currentTime - this.state.prevTime) : 0
     var interval = this.props.interval
 
-    // correct for small variations in actual timeout time
     var timeRemainingInInterval = (interval - (dt % interval))
     var timeout = timeRemainingInInterval
 
@@ -66,16 +64,12 @@ export default class CountdownTimer extends Component {
       return
     }
 
-    if (this.props.tickCallback) {
-      this.props.tickCallback(timeRemaining)
+    if (this.props.onTick) {
+      this.props.onTick(timeRemaining)
     }
   }
 
   getFormattedTime(milliseconds) {
-    if (this.props.formatFunc) {
-      return this.props.formatFunc(milliseconds)
-    }
-
     var totalSeconds = Math.round(milliseconds / 1000)
 
     var seconds = parseInt(totalSeconds % 60, 10)
@@ -107,7 +101,17 @@ export default class CountdownTimer extends Component {
 
 CountdownTimer.propTypes = {
   till: React.PropTypes.object.isRequired,
+  interval: React.PropTypes.number,
+  onTick: React.PropTypes.func,
   onFinish: React.PropTypes.func
+}
+
+//  Default props
+
+CountdownTimer.defaultProps = {
+  interval: 1000,
+  onTick: null,
+  onFinish: null
 }
 
 //  Styles
