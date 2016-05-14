@@ -13,6 +13,10 @@ export default class YourComponent extends Component {
     super(props)
   }
 
+  _onTick() {
+    console.log(`_onTick`)
+  }
+
   _onFinish() {
     console.log(`_onFinish`)
   }
@@ -23,6 +27,7 @@ export default class YourComponent extends Component {
       <View>
         <CountdownTimer
           till={till}
+          onTick={this._onTick.bind(this)}
           onFinish={this._onFinish.bind(this)}
         />
       </View>
