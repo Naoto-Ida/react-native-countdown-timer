@@ -1,4 +1,5 @@
-import React, {Component, StyleSheet, Text, View} from 'react-native'
+import React, {Component} from 'react'
+import {StyleSheet, Text, View} from 'react-native'
 
 export default class CountdownTimer extends Component {
   constructor(props) {
@@ -36,19 +37,19 @@ export default class CountdownTimer extends Component {
   }
 
   tick() {
-    var currentTime = Date.now()
-    var dt = this.state.prevTime ? (currentTime - this.state.prevTime) : 0
-    var interval = this.props.interval
+    const currentTime = Date.now()
+    const dt = this.state.prevTime ? (currentTime - this.state.prevTime) : 0
+    const interval = this.props.interval
 
-    var timeRemainingInInterval = (interval - (dt % interval))
-    var timeout = timeRemainingInInterval
+    const timeRemainingInInterval = (interval - (dt % interval))
+    let timeout = timeRemainingInInterval
 
     if (timeRemainingInInterval < (interval / 2.0)) {
       timeout += interval
     }
 
-    var timeRemaining = Math.max(this.state.timeRemaining - dt, 0)
-    var countdownComplete = (this.state.prevTime && timeRemaining <= 0)
+    const timeRemaining = Math.max(this.state.timeRemaining - dt, 0)
+    const countdownComplete = (this.state.prevTime && timeRemaining <= 0)
 
     if (this.state.isMounted) {
       if (this.state.timeoutId) { clearTimeout(this.state.timeoutId) }
@@ -60,7 +61,9 @@ export default class CountdownTimer extends Component {
     }
 
     if (countdownComplete) {
-      if (this.props.onFinish) { this.props.onFinish() }
+      if (this.props.onFinish) {
+        this.props.onFinish()
+      }
       return
     }
 
@@ -70,11 +73,11 @@ export default class CountdownTimer extends Component {
   }
 
   getFormattedTime(milliseconds) {
-    var totalSeconds = Math.round(milliseconds / 1000)
+    const totalSeconds = Math.round(milliseconds / 1000)
 
-    var seconds = parseInt(totalSeconds % 60, 10)
-    var minutes = parseInt(totalSeconds / 60, 10) % 60
-    var hours = parseInt(totalSeconds / 3600, 10)
+    let seconds = parseInt(totalSeconds % 60, 10)
+    let minutes = parseInt(totalSeconds / 60, 10) % 60
+    let hours = parseInt(totalSeconds / 3600, 10)
 
     seconds = seconds < 10 ? '0' + seconds : seconds
     minutes = minutes < 10 ? '0' + minutes : minutes
@@ -85,13 +88,15 @@ export default class CountdownTimer extends Component {
     )
   }
 
+  renderTick(data) {
+    const time = {time: this.getFormattedTime(data)}
+    return this.props.renderTick(time)
+  }
+
   render() {
-    const timeRemaining = this.state.timeRemaining
     return (
       <View>
-        <Text>
-          {this.getFormattedTime(timeRemaining)}
-        </Text>
+          {this.renderTick(this.state.timeRemaining)}
       </View>
     )
   }
@@ -103,7 +108,8 @@ CountdownTimer.propTypes = {
   till: React.PropTypes.object.isRequired,
   interval: React.PropTypes.number,
   onTick: React.PropTypes.func,
-  onFinish: React.PropTypes.func
+  onFinish: React.PropTypes.func,
+  renderTick: React.PropTypes.func.isRequired
 }
 
 //  Default props
