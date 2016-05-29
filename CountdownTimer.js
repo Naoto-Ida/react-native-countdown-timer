@@ -83,13 +83,19 @@ export default class CountdownTimer extends Component {
     minutes = minutes < 10 ? '0' + minutes : minutes
     hours = hours < 10 ? '0' + hours : hours
 
+    return {
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds
+    }
+
     return (
       hours + ':' + minutes + ':' + seconds
     )
   }
 
   renderTick(data) {
-    const time = {time: this.getFormattedTime(data)}
+    const time = this.getFormattedTime(data)
     return this.props.renderTick(time)
   }
 
