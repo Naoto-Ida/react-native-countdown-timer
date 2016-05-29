@@ -27,6 +27,7 @@ export default class YourComponent extends Component {
       <View>
         <CountdownTimer
           till={till}
+          renderTick={(data) => <TimeLabel {...data} />}
           onTick={this._onTick.bind(this)}
           onFinish={this._onFinish.bind(this)}
         />
@@ -34,6 +35,19 @@ export default class YourComponent extends Component {
     )
   }
 }
+
+class TimeLabel extends Component {
+  render() {
+    return (
+      <View>
+        <Text>
+          {this.props.hours} : {this.props.minutes} : {this.props.seconds}
+        </Text>
+      </View>
+    )
+  }
+}
+
 ```
 
 
