@@ -39,7 +39,7 @@ export default class CountdownTimer extends Component {
   tick() {
     const currentTime = Date.now()
     const dt = this.state.prevTime ? (currentTime - this.state.prevTime) : 0
-    const interval = this.props.interval
+    const interval = 1000
 
     const timeRemainingInInterval = (interval - (dt % interval))
     let timeout = timeRemainingInInterval
@@ -112,7 +112,6 @@ export default class CountdownTimer extends Component {
 
 CountdownTimer.propTypes = {
   till: React.PropTypes.object.isRequired,
-  interval: React.PropTypes.number,
   onTick: React.PropTypes.func,
   onFinish: React.PropTypes.func,
   renderTick: React.PropTypes.func.isRequired
@@ -121,7 +120,6 @@ CountdownTimer.propTypes = {
 //  Default props
 
 CountdownTimer.defaultProps = {
-  interval: 1000,
   onTick: null,
   onFinish: null
 }

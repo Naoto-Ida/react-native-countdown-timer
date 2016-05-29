@@ -43,9 +43,10 @@ export default class YourComponent extends Component {
 | till*             | Date     | A Date object of the datetime end                    |         |
 | onTick            | Function | Callback on timer tick                               |         |
 | onFinish          | Function | Callback when countdown has finished                 |         |
+| renderTick        | Function | Callback to render ticks with data                   |         |
 
 *required
 
 ### Todo (PRs welcome!)
 - [ ] Add animations
-- [ ] Add default styling to the timer
+- [ ] Handle passed dates, etc.
