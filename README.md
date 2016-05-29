@@ -57,7 +57,7 @@ class TimeLabel extends Component {
 | till*             | Date     | A Date object of the datetime end                    |         |
 | onTick            | Function | Callback on timer tick                               |         |
 | onFinish          | Function | Callback when countdown has finished                 |         |
-| renderTick        | Function | Callback to render ticks with data                   |         |
+| renderTick*       | Function | Callback to render ticks with data                   |         |
 
 *required
 
