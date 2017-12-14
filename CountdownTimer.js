@@ -18,8 +18,8 @@ export default class CountdownTimer extends Component {
 
   componentWillReceiveProps(newProps) {
     if (this.state.timeoutId) clearTimeout(this.state.timeoutId)
-    this.setState({prevTime: null, timeRemaining: newProps.initialTimeRemaining})
-  }
+	this.setState({ prevTime: null, timeRemaining: this.getInitialTimeRemaining(newProps.till) });  
+}
 
   componentDidUpdate() {
     if ((!this.state.prevTime) && this.state.timeRemaining > 0 && this.state.isMounted) {
